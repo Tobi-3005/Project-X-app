@@ -3,16 +3,18 @@ import { getAlertsByApartmentId } from "../../../services/alerts-services";
 import { getDevicesByApartmentId } from "../../../services/device-services";
 
 type ApartmentDetailPageProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export default function ApartmentDetailPage({
+export default async function ApartmentDetailPage({
   params,
 }: ApartmentDetailPageProps) {
-  const apartmentId = Number(params.id);
-  const apartment = getApartmentById(apartmentId);
+  const { id } = await params;
+  const apartmentId = Number(id);
+
+  const apartment = await getApartmentById(apartmentId);
   const alerts = getAlertsByApartmentId(apartmentId);
   const devices = getDevicesByApartmentId(apartmentId);
 

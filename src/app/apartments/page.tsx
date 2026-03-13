@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getApartments } from "../../services/apartment-service";
 
-export default function ApartmentsPage() {
-  const apartments = getApartments();
+export default async function ApartmentsPage() {
+  const apartments = await getApartments();
 
   return (
     <main className="min-h-screen p-8">

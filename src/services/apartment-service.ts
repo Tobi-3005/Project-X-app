@@ -1,9 +1,12 @@
-import { apartments } from "../data/demo";
+import {
+  getApartmentByIdRepo,
+  listApartmentsRepo,
+} from "../repositories/apartment-repository";
 
-export function getApartments() {
-  return apartments;
+export async function getApartments() {
+  return await listApartmentsRepo();
 }
 
-export function getApartmentById(id: number) {
-  return apartments.find((apartment) => apartment.id === id);
+export async function getApartmentById(id: number) {
+  return await getApartmentByIdRepo(id);
 }

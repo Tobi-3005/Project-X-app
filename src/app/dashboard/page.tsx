@@ -1,7 +1,7 @@
 import { getApartments } from "../../services/apartment-service";
 
-export default function DashboardPage() {
-  const apartments = getApartments();
+export default async function DashboardPage() {
+  const apartments = await getApartments();
 
   return (
     <main className="min-h-screen p-8">

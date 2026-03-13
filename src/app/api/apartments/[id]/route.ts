@@ -1,23 +1,26 @@
 import { NextResponse } from "next/server";
 import { getApartmentById } from "../../../../services/apartment-service";
 
-type RouteContext = {
-  params: Promise<{
-    id: string;
-  }>;
-};
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const apartmentId = Number(params.id);
+    const apartment = await getApartmentById(apartmentId);
 
-export async function GET(request: Request, context: RouteContext) {
-  const { id } = await context.params;
-  const apartmentId = Number(id);
-  const apartment = getApartmentById(apartmentId);
+    if (!apartment) {
+      return NextResponse.json(
+        { error: "Apartment not found" },
+        { status: 404 }
+      );
+    }
 
-  if (!apartment) {
-    return NextResponse.json(
-      { error: "Apartment not found" },
-      { status: 404 }
-    );
+    return NextResponse.json(apartment);
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Unknown server error";
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
-
-  return NextResponse.json(apartment);
 }
