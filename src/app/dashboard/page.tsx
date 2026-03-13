@@ -1,6 +1,8 @@
-import { apartments } from "../../lib/mock-data";
+import { getApartments } from "../../services/apartment-service";
 
 export default function DashboardPage() {
+  const apartments = getApartments();
+
   return (
     <main className="min-h-screen p-8">
       <div className="mx-auto max-w-6xl">
