@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getApartmentById } from "../../../services/apartment-service";
 import { getAlertsByApartmentId } from "../../../services/alerts-services";
 import { getDevicesByApartmentId } from "../../../services/device-services";
+import { getSensorReadingsByApartmentId } from "../../../services/sensor-service";
+import SensorCharts from "../../../components/sensor-charts";
 import type { ApartmentStatus } from "../../../types/apartment";
 import type { AlertSeverity } from "../../../types/alerts";
 
@@ -47,10 +49,11 @@ export default async function ApartmentDetailPage({
   const { id } = await params;
   const apartmentId = Number(id);
 
-  const [apartment, alerts, devices] = await Promise.all([
+  const [apartment, alerts, devices, readings] = await Promise.all([
     getApartmentById(apartmentId),
     getAlertsByApartmentId(apartmentId),
     getDevicesByApartmentId(apartmentId),
+    getSensorReadingsByApartmentId(apartmentId),
   ]);
 
   if (!apartment) {
@@ -105,6 +108,14 @@ export default async function ApartmentDetailPage({
           </p>
         </div>
       </div>
+
+      {/* Sensor Charts */}
+      <section className="mb-10">
+        <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
+          Sensor-Verlauf · 7 Tage
+        </h2>
+        <SensorCharts readings={readings} />
+      </section>
 
       {/* Devices */}
       <section className="mb-10">
