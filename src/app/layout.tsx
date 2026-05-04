@@ -25,9 +25,13 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F8F9FA] text-gray-900`}
+      >
+        <div className="flex min-h-screen">
+          <Navbar />
+          <main className="flex-1 ml-60 min-h-screen">{children}</main>
+        </div>
       </body>
     </html>
   );

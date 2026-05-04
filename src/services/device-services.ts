@@ -1,9 +1,12 @@
-import { devices } from "../data/demo";
+import {
+  listDevicesRepo,
+  listDevicesByApartmentIdRepo,
+} from "../repositories/device-repository";
 
-export function getDevices() {
-  return devices;
+export async function getDevices() {
+  return await listDevicesRepo();
 }
 
-export function getDevicesByApartmentId(apartmentId: number) {
-  return devices.filter((device) => device.apartmentId === apartmentId);
+export async function getDevicesByApartmentId(apartmentId: number) {
+  return await listDevicesByApartmentIdRepo(apartmentId);
 }

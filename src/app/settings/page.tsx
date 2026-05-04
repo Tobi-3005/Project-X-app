@@ -1,12 +1,17 @@
 export default function SettingsPage() {
   return (
-    <main className="min-h-screen p-8">
-      <div className="mx-auto max-w-6xl">
-        <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
-        <p className="mt-2 text-gray-600">
-          Configure users, apartments and platform settings.
+    <div className="p-8">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-gray-900">Einstellungen</h1>
+        <p className="mt-1 text-sm text-gray-500">
+          Nutzer, Wohnungen und Plattformkonfiguration
         </p>
       </div>
-    </main>
+      <div className="bg-white rounded-xl border border-gray-200 p-10 text-center">
+        <p className="text-sm text-gray-400">
+          Einstellungen werden in Kürze verfügbar sein.
+        </p>
+      </div>
+    </div>
   );
 }

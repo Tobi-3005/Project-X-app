@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item \"C:\\\\Users\\\\Tobias\\\\Desktop\\\\Biz\\\\Project_X\\\\project-x\\\\src\\\\data\\\\demo.ts\")",
+      "Bash(Remove-Item \"C:\\\\Users\\\\Tobias\\\\Desktop\\\\Biz\\\\Project_X\\\\project-x\\\\src\\\\lib\\\\mock-data.ts\")"
+    ]
+  }
+}

@@ -1,9 +1,12 @@
-import { alerts } from "../data/demo";
+import {
+  listAlertsRepo,
+  listAlertsByApartmentIdRepo,
+} from "../repositories/alert-repository";
 
-export function getAlerts() {
-  return alerts;
+export async function getAlerts() {
+  return await listAlertsRepo();
 }
 
-export function getAlertsByApartmentId(apartmentId: number) {
-  return alerts.filter((alert) => alert.apartmentId === apartmentId);
+export async function getAlertsByApartmentId(apartmentId: number) {
+  return await listAlertsByApartmentIdRepo(apartmentId);
 }
