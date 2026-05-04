@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import Link from "next/link";
 import { getApartmentById } from "../../../services/apartment-service";
 import { getAlertsByApartmentId } from "../../../services/alerts-services";

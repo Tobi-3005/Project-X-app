@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import Link from "next/link";
 import { getApartments } from "../../services/apartment-service";
 import type { ApartmentStatus } from "../../types/apartment";

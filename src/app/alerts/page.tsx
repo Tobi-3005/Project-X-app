@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { getAlerts } from "../../services/alerts-services";
 import type { AlertSeverity } from "../../types/alerts";
 

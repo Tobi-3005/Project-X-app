@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import { getApartments } from "../../services/apartment-service";
 import { getAlerts } from "../../services/alerts-services";
 import type { ApartmentStatus } from "../../types/apartment";
