@@ -6,16 +6,16 @@ import { signOut } from "@/app/actions/auth";
 import type { AuthUser } from "@/lib/auth";
 
 const ROLE_LABELS: Record<string, string> = {
-  admin: "Admin",
+  admin: "Administrator",
   owner: "Eigentümer",
   manager: "Verwalter",
 };
 
 const navItems = [
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/apartments", label: "Apartments" },
-  { href: "/alerts", label: "Alerts" },
-  { href: "/settings", label: "Settings" },
+  { href: "/apartments", label: "Wohnungen" },
+  { href: "/alerts", label: "Meldungen" },
+  { href: "/settings", label: "Einstellungen" },
 ];
 
 type NavbarProps = {

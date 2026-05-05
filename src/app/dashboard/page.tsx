@@ -126,12 +126,12 @@ export default async function DashboardPage() {
         ))}
       </div>
 
-      {/* Alerts */}
+      {/* Meldungen */}
       <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-        Aktuelle Alerts
+        Aktuelle Meldungen
       </h2>
       {alerts.length === 0 ? (
-        <p className="text-sm text-gray-400">Keine offenen Alerts.</p>
+        <p className="text-sm text-gray-400">Keine offenen Meldungen.</p>
       ) : (
         <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
           {alerts.map((alert) => (
@@ -144,7 +144,7 @@ export default async function DashboardPage() {
                 <p className="text-xs text-gray-500 mt-0.5">{alert.message}</p>
               </div>
               <span className="text-xs text-gray-400 whitespace-nowrap">
-                Apt. #{alert.apartmentId}
+                Whg. #{alert.apartmentId}
               </span>
             </div>
           ))}

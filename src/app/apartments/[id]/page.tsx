@@ -74,7 +74,7 @@ export default async function ApartmentDetailPage({
         href="/apartments"
         className="text-sm text-[#185FA5] hover:underline mb-6 inline-block"
       >
-        ← Zurück zu Apartments
+        ← Zurück zu Wohnungen
       </Link>
 
       <div className="flex items-center gap-3 mb-8">
@@ -157,14 +157,14 @@ export default async function ApartmentDetailPage({
         )}
       </section>
 
-      {/* Alerts */}
+      {/* Meldungen */}
       <section>
         <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-          Alerts
+          Meldungen
         </h2>
         {alerts.length === 0 ? (
           <p className="text-sm text-gray-400">
-            Keine Alerts für diese Wohnung.
+            Keine Meldungen für diese Wohnung.
           </p>
         ) : (
           <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">

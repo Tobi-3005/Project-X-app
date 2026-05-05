@@ -32,7 +32,7 @@ export default async function AlertsPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Alerts</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Meldungen</h1>
         <p className="mt-1 text-sm text-gray-500">
           Warnungen und Systemmeldungen
         </p>
@@ -40,7 +40,7 @@ export default async function AlertsPage() {
 
       {alerts.length === 0 ? (
         <div className="bg-white rounded-xl border border-gray-200 p-10 text-center">
-          <p className="text-sm text-gray-400">Keine offenen Alerts.</p>
+          <p className="text-sm text-gray-400">Keine offenen Meldungen.</p>
         </div>
       ) : (
         <div className="bg-white rounded-xl border border-gray-200 divide-y divide-gray-100">
@@ -56,7 +56,7 @@ export default async function AlertsPage() {
                 </div>
                 <p className="text-sm text-gray-500">{alert.message}</p>
                 <p className="text-xs text-gray-400 mt-1">
-                  Apartment #{alert.apartmentId}
+                  Wohnung #{alert.apartmentId}
                 </p>
               </div>
               <p className="text-xs text-gray-400 flex-shrink-0">
