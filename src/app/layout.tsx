@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Navbar from "../components/navbar";
+import { getCurrentUser } from "../lib/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,20 +20,35 @@ export const metadata: Metadata = {
   description: "Smart Energy Platform for Vacation Rentals",
 };
 
-type RootLayoutProps = {
-  children: React.ReactNode;
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-current-path") ?? "";
+  const isLoginPage = pathname === "/login";
+
+  const user = isLoginPage ? null : await getCurrentUser();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F8F9FA] text-gray-900`}
       >
-        <div className="flex min-h-screen">
-          <Navbar />
-          <main className="flex-1 ml-60 min-h-screen">{children}</main>
-        </div>
+        {isLoginPage ? (
+          children
+        ) : (
+          <div className="flex min-h-screen">
+            <Navbar user={user} />
+            <main className="flex-1 ml-60 min-h-screen">{children}</main>
+          </div>
+        )}
       </body>
     </html>
   );
